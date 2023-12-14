@@ -28,14 +28,14 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 
 		velocity = direction * Speed;
 
-		// if (direction != Vector2.Zero)
-		// {
-		// 	velocity = direction * Speed;
-		// }
-		// else
-		// {
-		// 	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		// }
+		if (direction != Vector2.Zero)
+		{
+			velocity = direction * Speed;
+		}
+		else
+		{
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+		}
 
 		Velocity = velocity;
 		play_animations(direction);
@@ -61,19 +61,19 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 		{
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("s-walk");
 		}
-		else if (direction.X == -1)
+		if (direction.X == -1)
 		{
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("w-walk");
 		}
-		else if (direction.X > 0.5 && direction.Y < -0.5)
+		if (direction.X > 0.5 && direction.Y < -0.5)
 		{
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("ne-walk");
 		}
-		else if (direction.X > 0.5 && direction.Y > 0.5)
+		if (direction.X > 0.5 && direction.Y > 0.5)
 		{
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("sw-walk");
 		}
-		else if (direction.X < -0.5 && direction.Y < -0.5)
+		if (direction.X < -0.5 && direction.Y < -0.5)
 		{
 			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("nw-walk");
 		}

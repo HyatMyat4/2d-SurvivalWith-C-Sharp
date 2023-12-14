@@ -548,12 +548,21 @@ animations = [{
 radius = 4.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_daw7c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vebv1")
-animation = &"e-walk"
+animation = &"w-walk"
+frame_progress = 0.544094
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_ciut7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = -440
+limit_top = -156
+limit_right = 272
+limit_bottom = 429
