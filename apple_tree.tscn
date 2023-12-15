@@ -43,7 +43,7 @@ shape = SubResource("CircleShape2D_jiqcf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pgw3v")
-animation = &"no_apples"
+animation = &"apples"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -51,4 +51,6 @@ one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
